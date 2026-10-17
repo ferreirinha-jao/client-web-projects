@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f7fc" />
+  <title>UPSHIFT ACADEMY — Your Next Skill Starts Here</title>
+  <meta name="description" content="Discover practical courses, build new skills, and take the next step in your learning journey with UPSHIFT ACADEMY." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #6240f5;
+      --purple-dark: #4e2cdb;
+      --lavender: #f0edff;
+      --lavender-2: #e5dfff;
+      --ink: #171923;
+      --muted: #737589;
+      --paper: #fbfaff;
+      --white: #fff;
+      --line: #e8e7ef;
+      --dark-panel: #182126;
+      --radius: 15px;
+      --shadow: 0 12px 35px rgba(42, 31, 92, .07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; }
+    img { display: block; width: 100%; object-fit: cover; }
+    .container { width: min(1450px, calc(100% - 80px)); margin-inline: auto; }
+    .eyebrow {
+      color: var(--purple);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    /* Navigation */
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 0 5%;
+      background: rgba(255,255,255,.91);
+      border-bottom: 1px solid rgba(226,224,238,.8);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+    }
+
+    .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .brand-mark {
+      width: 29px; height: 29px;
+      display: grid; place-items: center;
+      color: var(--purple); font-size: 30px; font-weight: 800;
+      transform: skew(-13deg);
+    }
+    .brand-name { font-family: Manrope, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -.9px; line-height: 1; }
+    .brand-name small { display: block; font-size: 9px; letter-spacing: 4px; text-align: center; margin-top: 4px; }
+
+    .nav-links { display: flex; align-items: center; gap: 33px; height: 100%; }
+    .nav-links a { height: 100%; display: grid; place-items: center; color: #55576a; font-size: 12px; font-weight: 600; position: relative; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+    .nav-links a.active::after { content: ""; position: absolute; height: 2px; bottom: 0; left: 0; right: 0; background: var(--purple); }
+
+    .nav-actions { display: flex; align-items: center; gap: 25px; flex-shrink: 0; }
+    .login { font-size: 12px; font-weight: 700; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 12px;
+      padding: 13px 22px; border: 0; border-radius: 10px;
+      background: var(--purple); color: white; font-weight: 700; font-size: 12px;
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+    .btn:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(98,64,245,.2); }
+    .btn-light { background: white; color: var(--purple); border: 1px solid var(--line); }
+    .btn-light:hover { color: white; }
+    .btn-arrow { font-size: 17px; line-height: 1; }
+    .menu-toggle { display: none; border: 0; background: none; font-size: 25px; color: var(--ink); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 75% 44%, rgba(179,158,255,.29), transparent 37%),
+        linear-gradient(115deg, #f4f1ff 0%, #f9f7ff 54%, #eeebff 100%);
+      overflow: hidden;
+      border-bottom: 1px solid #eae6fa;
+    }
+
+    .hero::before {
+      content: ""; position: absolute;
+      width: 460px; height: 460px; border: 1px solid rgba(111,79,247,.15);
+      border-radius: 50%; right: 17%; top: -170px;
+    }
+
+    .hero::after {
+      content: ""; position: absolute;
+      width: 350px; height: 350px; border: 1px solid rgba(111,79,247,.12);
+      border-radius: 50%; right: 21%; bottom: -250px;
+    }
+
+    .hero-grid {
+      display: grid; grid-template-columns: .92fr 1.08fr;
+      align-items: center; gap: 25px; min-height: 495px;
+      padding-top: 38px; padding-bottom: 25px; position: relative; z-index: 1;
+    }
+
+    .hero-copy { padding: 8px 0 0; max-width: 560px; }
+    .hero-kicker { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
+    .hero-kicker span { font-size: 10px; font-weight: 800; letter-spacing: 2.5px; color: var(--purple); }
+    .hero-kicker i { width: 4px; height: 4px; background: #a99aff; border-radius: 50%; }
+
+    h1 {
+      font-family: Manrope, sans-serif;
+      font-size: clamp(42px, 4.4vw, 66px);
+      font-weight: 800; letter-spacing: -3.6px; line-height: .99;
+      text-transform: uppercase; max-width: 610px;
+    }
+    h1 span { display: block; color: var(--purple); }
+    .hero-description { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 425px; margin-top: 19px; }
+    .hero-buttons { display: flex; align-items: center; gap: 22px; margin-top: 25px; }
+    .watch-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; }
+    .play {
+      width: 35px; height: 35px; border: 1px solid #b9adff; color: var(--purple);
+      border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.55);
+    }
+
+    .hero-benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 42px; }
+    .benefit { display: flex; align-items: center; gap: 9px; padding-right: 10px; border-right: 1px solid #dcd7ef; }
+    .benefit:last-child { border: 0; }
+    .benefit-icon { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; background: #e7e1ff; color: var(--purple); display: grid; place-items: center; font-size: 15px; }
+    .benefit strong { display: block; font-size: 10px; white-space: nowrap; }
+    .benefit small { display: block; font-size: 9px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+    /* Hero visual */
+    .hero-visual { min-width: 0; position: relative; height: 400px; }
+    .hero-orb { position: absolute; width: 340px; height: 340px; right: 13%; top: 20px; border-radius: 50%; background: linear-gradient(140deg, #d8ceff, #a58cff); opacity: .78; }
+    .hero-orb::after { content: ""; position: absolute; width: 200px; height: 200px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; left: 60px; top: 60px; }
+    .laptop {
+      position: absolute; z-index: 2; width: 66%; right: 12%; top: 40px;
+      background: #11151b; padding: 9px; border-radius: 13px 13px 5px 5px;
+      box-shadow: 0 22px 40px rgba(31,22,76,.25); transform: rotate(-1deg);
+    }
+    .laptop-screen {
+      background: linear-gradient(135deg, #1a202a, #11151b); color: white;
+      border-radius: 6px; padding: 18px 16px; min-height: 235px; position: relative; overflow: hidden;
+    }
+    .screen-brand { font-size: 10px; font-weight: 800; letter-spacing: 1px; display: flex; gap: 6px; align-items: center; }
+    .screen-brand b { color: #9a7cff; font-size: 15px; }
+    .screen-main { display: grid; grid-template-columns: 1.1fr .9fr; gap: 12px; margin-top: 28px; align-items: center; }
+    .screen-main h3 { font-size: clamp(15px, 1.5vw, 22px); line-height: 1.15; letter-spacing: -.5px; }
+    .screen-main p { font-size: 9px; color: #a8afc0; margin-top: 9px; }
+    .screen-progress { height: 6px; background: #39404d; border-radius: 8px; margin-top: 14px; overflow: hidden; }
+    .screen-progress span { display: block; height: 100%; width: 68%; background: var(--purple); border-radius: 8px; }
+    .screen-mini { background: #252b38; border-radius: 8px; padding: 12px; font-size: 9px; color: #c6cada; }
+    .screen-mini div { margin-top: 10px; padding: 7px; background: #32394a; border-radius: 5px; }
+    .laptop-base { position: absolute; bottom: -11px; left: -5%; width: 110%; height: 12px; background: linear-gradient(#c7c8d0, #767985); clip-path: polygon(5% 0,95% 0,100% 100%,0 100%); }
+    .laptop-base::after { content: ""; position: absolute; width: 25%; height: 3px; background: #777986; top: 0; left: 37%; border-radius: 0 0 5px 5px; }
+    .book-stack { position: absolute; z-index: 3; bottom: 32px; left: 1%; width: 33%; transform: rotate(-5deg); }
+    .book { padding: 10px 13px; color: white; background: #292b43; font-size: 10px; letter-spacing: 1px; font-weight: 700; box-shadow: 0 4px 8px #6555a833; border-bottom: 3px solid #aaa1cf; }
+    .book:nth-child(2) { background: #47406c; margin-left: 10px; }
+    .book:nth-child(3) { background: #292b43; margin-left: 20px; }
+    .floating-card { position: absolute; z-index: 4; background: rgba(255,255,255,.96); border: 1px solid #eeebf7; border-radius: 12px; padding: 12px; box-shadow: var(--shadow); }
+    .course-float { top: 22px; left: 0; width: 190px; display: flex; gap: 10px; align-items: center; }
+    .float-thumb { width: 58px; height: 54px; flex-shrink: 0; border-radius: 7px; background: linear-gradient(135deg,#343c50,#8d7cf2); display: grid; place-items: center; color: white; font-size: 20px; }
+    .floating-card strong { display: block; font-size: 10px; line-height: 1.4; }
+    .floating-card small { display: block; color: var(--muted); font-size: 9px; margin-top: 4px; }
+    .progress-float { right: 0; bottom: 32px; width: 170px; }
+    .progress-float .progress { height: 7px; border-radius: 8px; background: #e9e7f1; margin-top: 10px; overflow: hidden; }
+    .progress-float .progress span { display: block; width: 66%; height: 100%; background: var(--purple); border-radius: 8px; }
+    .starburst { position: absolute; right: 1%; top: 15px; color: var(--purple); font-size: 74px; line-height: 1; font-weight: 400; }
+    .scribble { position: absolute; right: 0; bottom: 1px; font-size: 12px; color: #6f5ce5; transform: rotate(-10deg); }
+
+    /* Courses */
+    .section { padding: 55px 0 60px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 26px; }
+    .section-heading h2 { font-family: Manrope, sans-serif; font-size: clamp(27px, 3vw, 39px); line-height: 1.12; letter-spacing: -1.7px; margin-top: 9px; }
+    .section-heading p { color: var(--muted); margin-top: 9px; max-width: 370px; line-height: 1.7; }
+    .text-link { color: var(--purple); font-size: 12px; font-weight: 700; display: inline-flex; gap: 10px; align-items: center; white-space: nowrap; }
+
+    .course-layout { display: grid; grid-template-columns: 260px 1fr; gap: 28px; }
+    .course-intro { padding-top: 8px; }
+    .course-intro h2 { font-family: Georgia, serif; font-size: 36px; font-weight: 500; line-height: 1.08; letter-spacing: -1px; margin-top: 12px; }
+    .course-intro p { color: var(--muted); line-height: 1.8; margin-top: 13px; max-width: 240px; }
+    .course-intro .text-link { margin-top: 23px; }
+    .course-content { min-width: 0; }
+    .filters { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin-bottom: 15px; }
+    .filter {
+      padding: 8px 14px; border: 1px solid transparent; border-radius: 20px;
+      background: transparent; color: #666779; font-size: 11px; font-weight: 600;
+      transition: all .2s;
+    }
+    .filter:hover { border-color: #d8d0ff; color: var(--purple); }
+    .filter.active { background: var(--purple); color: white; }
+
+    .course-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .course-card { border: 1px solid #e6e5ed; border-radius: 11px; overflow: hidden; background: white; transition: transform .25s, box-shadow .25s; min-width: 0; }
+    .course-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .course-image { height: 130px; position: relative; overflow: hidden; background: #e4e1ef; }
+    .course-image img { height: 100%; transition: transform .4s; }
+    .course-card:hover .course-image img { transform: scale(1.05); }
+    .course-tag { position: absolute; top: 10px; left: 10px; background: rgba(19,22,30,.76); color: white; border: 1px solid rgba(255,255,255,.25); padding: 4px 9px; border-radius: 20px; font-size: 9px; }
+    .favorite { position: absolute; top: 8px; right: 8px; background: rgba(20,22,30,.55); color: white; border: 0; width: 28px; height: 28px; border-radius: 50%; font-size: 17px; display: grid; place-items: center; }
+    .favorite.saved { background: var(--purple); }
+    .course-info { padding: 12px; }
+    .course-info h3 { font-size: 13px; line-height: 1.35; min-height: 35px; letter-spacing: -.2px; }
+    .instructor { display: flex; align-items: center; gap: 7px; margin-top: 10px; color: #77798a; font-size: 10px; }
+    .avatar { width: 24px; height: 24px; border-radius: 50%; background: #e7e1ff; color: var(--purple); display: grid; place-items: center; font-size: 9px; font-weight: 800; flex-shrink: 0; }
+    .course-meta { display: flex; justify-content: space-between; gap: 5px; margin-top: 10px; font-size: 9px; color: #858699; }
+    .course-meta span { white-space: nowrap; }
+    .course-bottom { display: flex; align-items: center; gap: 7px; margin-top: 13px; }
+    .mini-progress { flex: 1; height: 6px; border-radius: 8px; background: #e9e7f0; overflow: hidden; }
+    .mini-progress span { display: block; height: 100%; background: var(--purple); border-radius: 8px; }
+    .course-bottom small { color: #77798a; font-size: 8px; white-space: nowrap; }
+    .course-price { font-weight: 800; font-size: 11px; white-space: nowrap; }
+    .empty-state { grid-column: 1/-1; padding: 35px; text-align: center; color: var(--muted); }
+
+    /* Dashboard */
+    .dashboard-section { background: var(--dark-panel); color: white; }
+    .dashboard-grid { display: grid; grid-template-columns: .8fr 2.1fr 1fr; min-height: 360px; }
+    .dashboard-copy { padding: 52px 30px 40px 0; align-self: center; }
+    .dashboard-copy .eyebrow { color: #b6a8ff; }
+    .dashboard-copy h2 { font-family: Georgia, serif; font-size: 34px; line-height: 1.13; font-weight: 400; letter-spacing: -.8px; margin-top: 13px; }
+    .dashboard-copy p { color: #c0c5cc; font-size: 12px; line-height: 1.8; margin-top: 14px; max-width: 250px; }
+    .outline-btn { border: 1px solid #7b818b; border-radius: 7px; padding: 11px 17px; color: white; font-size: 11px; font-weight: 700; display: inline-flex; gap: 12px; margin-top: 23px; background: transparent; }
+    .outline-btn:hover { background: white; color: var(--ink); }
+    .dashboard-mock { background: #f4f3fa; color: var(--ink); margin: 24px 0; border-radius: 9px; padding: 13px; display: grid; grid-template-columns: 105px 1fr; gap: 12px; min-width: 0; }
+    .dash-sidebar { background: white; border-radius: 7px; padding: 12px 8px; }
+    .dash-logo { font-size: 11px; font-weight: 800; color: var(--ink); margin-bottom: 20px; }
+    .dash-logo span { color: var(--purple); font-size: 15px; }
+    .dash-nav { padding: 9px 7px; border-radius: 5px; color: #85869a; font-size: 9px; margin-top: 4px; }
+    .dash-nav.selected { background: #eee9ff; color: var(--purple); font-weight: 700; }
+    .dash-main { min-width: 0; }
+    .dash-welcome { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 13px; }
+    .dash-welcome h3 { font-size: 14px; }
+    .dash-welcome p { color: #88899a; font-size: 9px; margin-top: 3px; }
+    .dash-avatar { background: #ded5ff; color: var(--purple); width: 29px; height: 29px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+    .dash-panel { background: white; border: 1px solid #eae9f1; border-radius: 7px; padding: 12px; margin-bottom: 10px; }
+    .dash-panel-head { display: flex; justify-content: space-between; gap: 8px; font-size: 10px; font-weight: 700; }
+    .dash-panel small { color: #85869a; font-size: 8px; }
+    .dash-bar { height: 6px; background: #e9e7f2; border-radius: 8px; margin-top: 10px; overflow: hidden; }
+    .dash-bar span { height: 100%; width: 60%; display: block; background: var(--purple); border-radius: 8px; }
+    .dash-lower { display: grid; grid-template-columns: 1.2fr .8fr; gap: 10px; }
+    .continue-card { display: flex; gap: 10px; align-items: center; margin-top: 12px; }
+    .continue-thumb { width: 65px; height: 48px; border-radius: 5px; flex-shrink: 0; background: linear-gradient(140deg,#202f46,#6f5be4); display: grid; place-items: center; color: white; }
+    .continue-card strong { display: block; font-size: 9px; }
+    .continue-card small { display: block; margin-top: 4px; }
+    .continue-btn { margin-left: auto; border: 0; border-radius: 5px; background: var(--purple); color: white; padding: 7px 10px; font-size: 9px; font-weight: 700; flex-shrink: 0; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 10px; }
+    .stat { border: 1px solid #eeedf3; border-radius: 6px; padding: 9px; }
+    .stat strong { display: block; font-size: 16px; }
+    .stat small { display: block; margin-top: 3px; }
+    .testimonial { align-self: center; padding: 30px 0 30px 30px; }
+    .testimonial .eyebrow { font-size: 9px; }
+    .testimonial h3 { font-family: Georgia, serif; font-size: 27px; line-height: 1.15; font-weight: 400; margin-top: 12px; }
+    .testimonial blockquote { color: #c6c9d2; font-size: 12px; line-height: 1.8; margin-top: 14px; font-style: italic; }
+    .testimonial-person { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+    .testimonial-person .avatar { width: 38px; height: 38px; }
+    .testimonial-person strong { font-size: 11px; display: block; }
+    .testimonial-person small { display: block; color: #aeb4c0; font-size: 9px; margin-top: 3px; }
+    .stars { color: #a999ff; letter-spacing: 2px; margin-top: 4px; font-size: 12px; }
+
+    /* Final CTA and footer */
+    .cta-section { padding: 70px 0; background: linear-gradient(120deg,#f0edff,#faf9ff); }
+    .cta-panel { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 35px 42px; background: white; border: 1px solid #e7e1ff; border-radius: 18px; box-shadow: var(--shadow); }
+    .cta-panel h2 { font-family: Manrope, sans-serif; font-size: clamp(25px,3vw,38px); letter-spacing: -1.5px; line-height: 1.15; margin-top: 8px; }
+    .cta-panel p { color: var(--muted); margin-top: 9px; max-width: 500px; line-height: 1.7; }
+    .cta-panel .btn { flex-shrink: 0; }
+
+    footer { background: #fff; }
+    .footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding: 38px 0; }
+    .footer-about { max-width: 290px; }
+    .footer-about p { font-size: 11px; color: var(--muted); line-height: 1.8; margin-top: 13px; }
+    .footer-links h4 { font-size: 11px; margin-bottom: 13px; }
+    .footer-links a { display: block; font-size: 11px; color: var(--muted); margin-top: 9px; }
+    .footer-links a:hover { color: var(--purple); }
+    .footer-bottom { border-top: 1px solid var(--line); padding: 16px 0; display: flex; justify-content: space-between; gap: 15px; color: #85869a; font-size: 10px; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (min-width: 1500px) {
+      .hero-grid { min-height: 520px; }
+      .hero-visual { height: 430px; }
+      .course-image { height: 155px; }
+    }
+
+    @media (max-width: 1150px) {
+      .navbar { padding-inline: 30px; gap: 18px; }
+      .nav-links { gap: 19px; }
+      .container { width: calc(100% - 56px); }
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+      .hero-benefits { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
+      .benefit:nth-child(2) { border-right: 0; }
+      .course-layout { grid-template-columns: 210px 1fr; gap: 20px; }
+      .course-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .course-image { height: 150px; }
+      .dashboard-grid { grid-template-columns: .75fr 1.7fr; }
+      .testimonial { grid-column: 1/-1; padding: 25px 0 35px; display: grid; grid-template-columns: .7fr 1.3fr; column-gap: 25px; }
+      .testimonial .eyebrow, .testimonial h3 { grid-column: 1; }
+      .testimonial blockquote, .testimonial-person { grid-column: 2; }
+      .testimonial blockquote { grid-row: 1 / span 2; margin-top: 0; }
+      .testimonial-person { margin-top: 10px; }
+    }
+
+    @media (max-width: 800px) {
+      .navbar { height: 68px; padding-inline: 22px; }
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute; top: 67px; left: 0; right: 0; height: auto;
+        padding: 15px 24px 22px; background: white; border-bottom: 1px solid var(--line);
+        display: none; flex-direction: column; align-items: stretch; gap: 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 0; display: block; height: auto; }
+      .nav-links a.active::after { display: none; }
+      .nav-actions { gap: 13px; }
+      .login { display: none; }
+      .nav-actions .btn { padding: 10px 13px; font-size: 11px; }
+      .container { width: calc(100% - 42px); }
+      .hero-grid { grid-template-columns: 1fr; padding-top: 55px; gap: 10px; }
+      .hero-copy { max-width: 650px; }
+      h1 { font-size: clamp(43px, 9vw, 68px); }
+      .hero-visual { height: 380px; width: min(600px,100%); margin: 0 auto; }
+      .hero-benefits { max-width: 580px; }
+      .section { padding: 45px 0; }
+      .course-layout { grid-template-columns: 1fr; }
+      .course-intro { display: grid; grid-template-columns: 1fr auto; gap: 8px 20px; align-items: end; }
+      .course-intro .eyebrow { grid-column: 1/-1; }
+      .course-intro h2 { margin-top: 0; }
+      .course-intro p { margin-top: 0; }
+      .course-intro .text-link { grid-column: 2; grid-row: 2; }
+      .course-content { margin-top: 10px; }
+      .course-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .dashboard-grid { grid-template-columns: 1fr; padding-top: 10px; }
+      .dashboard-copy { padding: 35px 0 20px; }
+      .dashboard-copy p { max-width: 430px; }
+      .dashboard-mock { margin: 10px 0 25px; }
+      .testimonial { display: block; padding: 20px 0 35px; }
+      .testimonial blockquote { margin-top: 13px; }
+      .cta-panel { padding: 28px; }
+    }
+
+    @media (max-width: 520px) {
+      .navbar { padding-inline: 16px; }
+      .brand-name { font-size: 17px; }
+      .brand-mark { font-size: 26px; width: 24px; }
+      .nav-actions .btn { padding: 9px 10px; }
+      .container { width: calc(100% - 32px); }
+      .hero-grid { padding-top: 40px; }
+      h1 { font-size: clamp(40px, 12vw, 57px); letter-spacing: -2.5px; }
+      .hero-description { font-size: 13px; }
+      .hero-buttons { gap: 14px; flex-wrap: wrap; }
+      .hero-buttons .btn { padding: 12px 15px; }
+      .hero-benefits { gap: 14px 7px; }
+      .benefit { border: 0; padding: 0; }
+      .benefit strong { font-size: 9px; }
+      .benefit small { font-size: 8px; }
+      .hero-visual { height: 300px; margin-top: 8px; }
+      .hero-orb { width: 260px; height: 260px; right: 10%; top: 20px; }
+      .laptop { width: 75%; right: 7%; top: 48px; }
+      .laptop-screen { min-height: 180px; padding: 12px; }
+      .screen-main { margin-top: 20px; }
+      .screen-main p { font-size: 8px; }
+      .screen-mini { padding: 8px; font-size: 8px; }
+      .book-stack { width: 36%; bottom: 20px; }
+      .book { font-size: 8px; padding: 8px; }
+      .course-float { width: 150px; top: 6px; padding: 8px; }
+      .float-thumb { width: 40px; height: 42px; }
+      .progress-float { width: 138px; bottom: 12px; padding: 9px; }
+      .starburst { font-size: 48px; }
+      .scribble { display: none; }
+      .section-heading { align-items: flex-start; flex-direction: column; }
+      .section-heading h2 { font-size: 32px; }
+      .course-intro { display: block; }
+      .course-intro h2 { font-size: 33px; }
+      .course-intro p { max-width: 330px; margin-top: 10px; }
+      .course-intro .text-link { margin-top: 13px; }
+      .filters { gap: 4px; }
+      .filter { padding: 7px 10px; font-size: 10px; }
+      .course-grid { gap: 10px; }
+      .course-image { height: 110px; }
+      .course-info { padding: 9px; }
+      .course-info h3 { font-size: 11px; }
+      .course-meta { font-size: 8px; flex-wrap: wrap; }
+      .course-bottom { flex-wrap: wrap; }
+      .course-bottom .mini-progress { min-width: 50px; }
+      .course-bottom small { font-size: 7px; }
+      .course-price { font-size: 10px; }
+      .dashboard-copy h2 { font-size: 32px; }
+      .dashboard-mock { grid-template-columns: 1fr; padding: 8px; }
+      .dash-sidebar { display: none; }
+      .dash-lower { grid-template-columns: 1fr; }
+      .continue-card { flex-wrap: wrap; }
+      .continue-btn { margin-left: 0; }
+      .cta-section { padding: 42px 0; }
+      .cta-panel { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .footer-main { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+      .footer-about { grid-column: 1/-1; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="UPSHIFT Academy home">
+      <span class="brand-mark">↗</span>
+      <span class="brand-name">UPSHIFT<small>ACADEMY</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#learning">Instructors</a>
+      <a href="#about">About</a>
+      <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="login" href="#login" data-demo="Sign-in is a demonstration in this portfolio concept.">Log in</a>
+      <a class="btn" href="#courses">Get started <span class="btn-arrow">↗</span></a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span>LEARN</span><i></i><span>GROW</span><i></i><span>BUILD YOUR FUTURE</span>
+          </div>
+          <h1>Your next skill <span>starts here</span></h1>
+          <p class="hero-description">
+            Practical, hands-on courses designed to help you build real skills,
+            advance your career and create new opportunities.
+          </p>
+          <div class="hero-buttons">
+            <a href="#courses" class="btn">Explore courses <span class="btn-arrow">→</span></a>
+            <a href="#learning" class="watch-link"><span class="play">▶</span> Discover the platform</a>
+          </div>
+
+          <div class="hero-benefits">
+            <div class="benefit">
+              <span class="benefit-icon">♙</span>
+              <div><strong>Expert instructors</strong><small>Learn from professionals</small></div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">✳</span>
+              <div><strong>Certificates</strong><small>Showcase your progress</small></div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">∞</span>
+              <div><strong>Learn your way</strong><small>At your own pace</small></div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-icon">♧</span>
+              <div><strong>Learning community</strong><small>Grow together</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Illustration of the online learning platform">
+          <div class="hero-orb"></div>
+          <div class="starburst" aria-hidden="true">✳</div>
+
+          <div class="course-float floating-card">
+            <div class="float-thumb">▶</div>
+            <div>
+              <strong>Build a Modern Website</strong>
+              <small>Web Development · Sample course</small>
+            </div>
+          </div>
+
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="screen-brand"><b>↗</b> UPSHIFT</div>
+              <div class="screen-main">
+                <div>
+                  <h3>Better skills.<br>Bigger opportunities.</h3>
+                  <p>A little progress every day adds up.</p>
+                  <div class="screen-progress"><span></span></div>
+                  <p>Sample learning dashboard</p>
+                </div>
+                <div class="screen-mini">
+                  <strong>YOUR LEARNING</strong>
+                  <div>▣ &nbsp; Courses</div>
+                  <div>◷ &nbsp; My progress</div>
+                  <div>✳ &nbsp; Certificates</div>
+                  <div>♧ &nbsp; Community</div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+
+          <div class="book-stack" aria-hidden="true">
+            <div class="book">TECHNOLOGY</div>
+            <div class="book">CREATIVITY</div>
+            <div class="book">OPPORTUNITY</div>
+          </div>
+
+          <div class="progress-float floating-card">
+            <strong>Your progress</strong>
+            <small>3 of 5 sample courses</small>
+            <div class="progress"><span></span></div>
+          </div>
+          <div class="scribble">Small steps.<br>Big changes. ↙</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="container course-layout">
+        <div class="course-intro reveal">
+          <span class="eyebrow">Featured courses</span>
+          <h2>Popular this week</h2>
+          <p>Explore practical learning paths and start building skills for what's next.</p>
+          <a class="text-link" href="#all-courses">View all courses <span>→</span></a>
+        </div>
+
+        <div class="course-content reveal">
+          <div class="filters" role="group" aria-label="Filter courses by category">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="programming">Programming</button>
+            <button class="filter" data-filter="design">Design</button>
+            <button class="filter" data-filter="business">Business</button>
+            <button class="filter" data-filter="marketing">Marketing</button>
+            <button class="filter" data-filter="data">Data Science</button>
+          </div>
+
+          <div class="course-grid" id="courseGrid">
+            <article class="course-card" data-category="programming">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=85" alt="Developer working at a computer" loading="lazy">
+                <span class="course-tag">Programming</span>
+                <button class="favorite" aria-label="Save Python for Beginners" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Python for Beginners</h3>
+                <div class="instructor"><span class="avatar">LF</span> Lucas Ferreira <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 8 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:65%"></span></div><small>65% sample</small><span class="course-price">$49</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="design">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=85" alt="Design notes and creative work on a desk" loading="lazy">
+                <span class="course-tag">Design</span>
+                <button class="favorite" aria-label="Save UX UI Design Fundamentals" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>UX/UI Design Fundamentals</h3>
+                <div class="instructor"><span class="avatar">MC</span> Mariana Costa <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 6 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:32%"></span></div><small>32% sample</small><span class="course-price">$59</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="data">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=85" alt="Data analysis dashboard on a monitor" loading="lazy">
+                <span class="course-tag">Data Science</span>
+                <button class="favorite" aria-label="Save Data Analysis with Python" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Data Analysis with Python</h3>
+                <div class="instructor"><span class="avatar">RM</span> Rafael Mendes <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 7 weeks</span><span>⌁ Intermediate</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:18%"></span></div><small>18% sample</small><span class="course-price">$49</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="marketing">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=85" alt="Laptop with a marketing analytics dashboard" loading="lazy">
+                <span class="course-tag">Marketing</span>
+                <button class="favorite" aria-label="Save Digital Marketing Strategy" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Digital Marketing Strategy</h3>
+                <div class="instructor"><span class="avatar">CS</span> Carla Santos <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 5 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:41%"></span></div><small>41% sample</small><span class="course-price">$39</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="business">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=85" alt="Bright modern workspace" loading="lazy">
+                <span class="course-tag">Business</span>
+                <button class="favorite" aria-label="Save Business Essentials" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Business Essentials</h3>
+                <div class="instructor"><span class="avatar">AC</span> Alex Costa <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 4 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:25%"></span></div><small>25% sample</small><span class="course-price">$35</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="programming">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=85" alt="Laptop used for web development" loading="lazy">
+                <span class="course-tag">Programming</span>
+                <button class="favorite" aria-label="Save Modern Web Development" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Modern Web Development</h3>
+                <div class="instructor"><span class="avatar">LF</span> Lucas Ferreira <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 10 weeks</span><span>⌁ Intermediate</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:12%"></span></div><small>12% sample</small><span class="course-price">$69</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="design">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=700&q=85" alt="Creative design workspace" loading="lazy">
+                <span class="course-tag">Design</span>
+                <button class="favorite" aria-label="Save Visual Design Principles" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Visual Design Principles</h3>
+                <div class="instructor"><span class="avatar">MC</span> Mariana Costa <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 5 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:44%"></span></div><small>44% sample</small><span class="course-price">$45</span></div>
+              </div>
+            </article>
+
+            <article class="course-card" data-category="business">
+              <div class="course-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=85" alt="Team collaborating around a table" loading="lazy">
+                <span class="course-tag">Business</span>
+                <button class="favorite" aria-label="Save Project Management Basics" aria-pressed="false">♡</button>
+              </div>
+              <div class="course-info">
+                <h3>Project Management Basics</h3>
+                <div class="instructor"><span class="avatar">AC</span> Alex Costa <span aria-hidden="true">·</span> <span>Sample</span></div>
+                <div class="course-meta"><span>◷ 6 weeks</span><span>⌁ Beginner</span></div>
+                <div class="course-bottom"><div class="mini-progress"><span style="width:21%"></span></div><small>21% sample</small><span class="course-price">$39</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section" id="learning">
+      <div class="container dashboard-grid">
+        <div class="dashboard-copy reveal">
+          <span class="eyebrow">Your learning dashboard</span>
+          <h2>Track your progress. Achieve your goals.</h2>
+          <p>A simple place to stay focused, organized and motivated as you continue learning.</p>
+          <a href="#courses" class="outline-btn">Explore the experience <span>→</span></a>
+        </div>
+
+        <div class="dashboard-mock reveal" aria-label="Illustrative learning dashboard preview">
+          <aside class="dash-sidebar">
+            <div class="dash-logo"><span>↗</span> UPSHIFT</div>
+            <div class="dash-nav selected">▦ &nbsp; Dashboard</div>
+            <div class="dash-nav">▤ &nbsp; My Courses</div>
+            <div class="dash-nav">⌁ &nbsp; Learning Paths</div>
+            <div class="dash-nav">✳ &nbsp; Certificates</div>
+            <div class="dash-nav">⚙ &nbsp; Settings</div>
+          </aside>
+
+          <div class="dash-main">
+            <div class="dash-welcome">
+              <div><h3>Good morning, Alex</h3><p>Keep going! You're making sample progress.</p></div>
+              <span class="dash-avatar">A</span>
+            </div>
+            <div class="dash-panel">
+              <div class="dash-panel-head"><span>Overall progress</span><small>3 of 5 sample courses</small></div>
+              <div class="dash-bar"><span></span></div>
+              <small style="display:block;text-align:right;margin-top:5px;">60% · Illustrative data</small>
+            </div>
+            <div class="dash-lower">
+              <div class="dash-panel">
+                <div class="dash-panel-head"><span>Continue learning</span><small>View all →</small></div>
+                <div class="continue-card">
+                  <div class="continue-thumb">▶</div>
+                  <div><strong>Python for Beginners</strong><small>Lesson 6 · Working with data</small></div>
+                  <button class="continue-btn" data-demo="Course playback is a demonstration in this portfolio concept.">Continue</button>
+                </div>
+              </div>
+              <div class="dash-panel">
+                <div class="dash-panel-head"><span>Learning stats</span></div>
+                <div class="stats-grid">
+                  <div class="stat"><strong>12</strong><small>Sample lessons</small></div>
+                  <div class="stat"><strong>48h</strong><small>Study time</small></div>
+                  <div class="stat"><strong>5</strong><small>Sample courses</small></div>
+                  <div class="stat"><strong>4.8</strong><small>Demo rating</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="testimonial reveal" id="about">
+          <span class="eyebrow">A sample learner story</span>
+          <h3>Learning that moves you forward.</h3>
+          <blockquote>
+            “The best learning experience helps you turn curiosity into practical skills, one step at a time.”
+          </blockquote>
+          <div class="testimonial-person">
+            <span class="avatar">JD</span>
+            <div>
+              <strong>Jordan Davis</strong>
+              <small>Illustrative profile · Sample testimonial</small>
+              <div class="stars" aria-label="Illustrative five star rating">★★★★★</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section" id="resources">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <span class="eyebrow">Your next chapter starts here</span>
+            <h2>Ready to level up your skills?</h2>
+            <p>Explore the course collection and imagine what's possible when you make time to learn.</p>
+          </div>
+          <a href="#courses" class="btn">Explore the courses <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-about">
+        <a class="brand" href="#home">
+          <span class="brand-mark">↗</span>
+          <span class="brand-name">UPSHIFT<small>ACADEMY</small></span>
+        </a>
+        <p>A fictional online learning platform concept designed to make learning feel practical, focused and inspiring.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="#courses">All courses</a>
+        <a href="#learning">Learning dashboard</a>
+        <a href="#resources">Learning paths</a>
+      </div>
+      <div class="footer-links">
+        <h4>Learning</h4>
+        <a href="#courses">Programming</a>
+        <a href="#courses">Design</a>
+        <a href="#courses">Business</a>
+      </div>
+      <div class="footer-links">
+        <h4>Platform</h4>
+        <a href="#about">About UPSHIFT</a>
+        <a href="#login" data-demo="Account creation is not connected in this portfolio concept.">Create an account</a>
+        <a href="#resources">Resources</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> UPSHIFT ACADEMY · Fictional portfolio concept</span>
+      <span>Designed for curious minds and lifelong learners.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Course category filters
+    const filterButtons = document.querySelectorAll(".filter");
+    const courseCards = document.querySelectorAll(".course-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const selected = button.dataset.filter;
+        courseCards.forEach(card => {
+          card.hidden = selected !== "all" && card.dataset.category !== selected;
+        });
+      });
+    });
+
+    // Save buttons are interactive visual demonstrations
+    document.querySelectorAll(".favorite").forEach(button => {
+      button.addEventListener("click", () => {
+        const saved = button.classList.toggle("saved");
+        button.textContent = saved ? "♥" : "♡";
+        button.setAttribute("aria-pressed", String(saved));
+      });
+    });
+
+    // Demo interactions: clearly identify features not connected to a backend
+    document.querySelectorAll("[data-demo]").forEach(element => {
+      element.addEventListener("click", event => {
+        event.preventDefault();
+        alert(element.dataset.demo);
+      });
+    });
+
+    // Subtle entrance animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
