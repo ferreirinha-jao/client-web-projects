@@ -1,0 +1,1601 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d0c">
+  <meta name="description" content="FORM ATHLETIC — Premium training, purposeful movement, lasting progress.">
+  <title>FORM ATHLETIC — Built Through Consistency</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0b0d0c;
+      --black-soft: #121513;
+      --panel: #171a17;
+      --white: #f2f0e9;
+      --white-dim: #d5d3cc;
+      --lime: #d4ff43;
+      --lime-dark: #b8e72b;
+      --gray: #92958d;
+      --line: rgba(242,240,233,.17);
+      --font-body: "DM Sans", sans-serif;
+      --font-display: "Barlow Condensed", sans-serif;
+      --font-mono: "Space Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .container {
+      width: min(1540px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .lime { color: var(--lime); }
+
+    .micro-label {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white-dim);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .micro-label::before {
+      content: "";
+      display: inline-block;
+      width: 17px;
+      height: 2px;
+      flex: 0 0 auto;
+      background: var(--lime);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 23px;
+    }
+
+    .section-heading h2 {
+      margin-top: 8px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.4vw, 48px);
+      font-weight: 700;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(242,240,233,.35);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      transition: color .2s, border-color .2s;
+    }
+
+    .text-link:hover {
+      color: var(--lime);
+      border-color: var(--lime);
+    }
+
+    .arrow { font-size: 17px; font-weight: 400; line-height: 1; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      min-height: 42px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      background: var(--lime);
+      color: var(--black);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: background .2s, color .2s, transform .2s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: rgba(212,255,67,.85);
+      border-radius: 99px;
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--lime);
+      color: var(--black);
+    }
+
+    /* NAVIGATION */
+
+    .header {
+      position: relative;
+      z-index: 50;
+      height: 62px;
+      border-bottom: 1px solid var(--line);
+      background: var(--black);
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 100%;
+      gap: 30px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+    }
+
+    .logo-mark {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      transform: skew(-23deg);
+    }
+
+    .logo-mark span {
+      display: block;
+      width: 8px;
+      height: 26px;
+      background: var(--lime);
+    }
+
+    .logo-mark span:last-child {
+      height: 19px;
+      background: #a9d52f;
+    }
+
+    .logo-type {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: .8;
+      letter-spacing: .12em;
+    }
+
+    .logo-type small {
+      display: block;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: .42em;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: clamp(17px, 3vw, 48px);
+    }
+
+    .nav-links a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: #d0d0ca;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: var(--lime);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--white); }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .nav-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .search-btn, .menu-btn {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 34px;
+      border: 0;
+      background: transparent;
+      color: var(--lime);
+      cursor: pointer;
+    }
+
+    .search-btn svg, .menu-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+    }
+
+    .menu-btn { display: none; }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #151814;
+    }
+
+    .hero-image {
+      position: absolute;
+      z-index: -3;
+      inset: 0;
+    }
+
+    .hero-image img {
+      object-position: center 44%;
+      filter: brightness(.8) saturate(.78);
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8,10,9,.98) 0%, rgba(8,10,9,.9) 25%, rgba(8,10,9,.45) 47%, rgba(8,10,9,.06) 75%),
+        linear-gradient(0deg, rgba(8,10,9,.45), transparent 35%);
+      content: "";
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 320px;
+      padding-top: 28px;
+      padding-bottom: 30px;
+    }
+
+    .hero .micro-label { margin-bottom: 13px; }
+
+    .hero h1 {
+      max-width: 650px;
+      font-family: var(--font-display);
+      font-size: clamp(50px, 5.7vw, 83px);
+      font-weight: 800;
+      line-height: .78;
+      letter-spacing: -.015em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span { display: block; }
+    .hero h1 .lime { margin-top: 8px; }
+
+    .hero-description {
+      max-width: 385px;
+      margin-top: 19px;
+      color: #e2e0d9;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 34px;
+      margin-top: 20px;
+    }
+
+    .hero-actions .btn { min-width: 169px; min-height: 40px; }
+
+    .hero-side-copy {
+      position: absolute;
+      top: 26px;
+      right: max(32px, calc((100% - 1540px) / 2 + 36px));
+      width: 135px;
+      color: rgba(255,255,255,.85);
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .hero-side-copy .logo-mark { margin-top: 15px; }
+
+    .hero-controls {
+      position: absolute;
+      right: max(32px, calc((100% - 1540px) / 2 + 36px));
+      bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 9px;
+    }
+
+    .hero-progress {
+      width: 34px;
+      height: 2px;
+      background: var(--lime);
+    }
+
+    .hero-controls button {
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    /* MAIN LIGHT SECTION */
+
+    .overview {
+      padding: 18px 0 20px;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.06fr 1.06fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .programs-area { min-width: 0; }
+
+    .overview .micro-label { color: #555851; }
+
+    .programs-area > .micro-label { margin: 8px 0 11px; }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .program-card {
+      min-width: 0;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .program-image {
+      position: relative;
+      height: 110px;
+      overflow: hidden;
+    }
+
+    .program-image img {
+      transition: transform .55s ease;
+    }
+
+    .program-card:hover .program-image img { transform: scale(1.06); }
+
+    .program-image::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.65), transparent 70%);
+      content: "";
+    }
+
+    .program-icon {
+      position: absolute;
+      z-index: 1;
+      bottom: 8px;
+      left: 12px;
+      color: var(--lime);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .program-body { padding: 10px 12px 12px; }
+
+    .program-body h3 {
+      min-height: 16px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .program-body p {
+      min-height: 39px;
+      margin-top: 8px;
+      color: #d0d1ca;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .program-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+      color: #b8bab3;
+      font-family: var(--font-mono);
+      font-size: 7px;
+      text-transform: uppercase;
+    }
+
+    .program-meta .arrow { font-size: 15px; }
+
+    /* SCHEDULE */
+
+    .schedule-panel {
+      display: flex;
+      flex-direction: column;
+      padding: 19px 18px 10px;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-top .micro-label {
+      color: var(--white);
+      font-size: 8px;
+      letter-spacing: .1em;
+    }
+
+    .panel-top .micro-label::before { width: 15px; }
+
+    .mini-link {
+      color: #c6c8c0;
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mini-link:hover { color: var(--lime); }
+
+    .schedule-list { list-style: none; }
+
+    .schedule-list li {
+      display: grid;
+      grid-template-columns: 37px 9px minmax(0, 1fr) 40px 12px;
+      align-items: center;
+      gap: 7px;
+      min-height: 35px;
+      border-bottom: 1px solid var(--line);
+      font-size: 9px;
+    }
+
+    .schedule-list li:last-child { border-bottom: 0; }
+
+    .schedule-time {
+      color: #c9cbc3;
+      font-family: var(--font-mono);
+      font-size: 9px;
+    }
+
+    .schedule-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--lime);
+    }
+
+    .schedule-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .schedule-duration {
+      color: #c9cbc3;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .schedule-arrow {
+      color: #b9bbb5;
+      font-size: 15px;
+      text-align: right;
+    }
+
+    /* TRAINER */
+
+    .trainer-panel {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 100%;
+      overflow: hidden;
+      background: #171917;
+      color: var(--white);
+    }
+
+    .trainer-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .trainer-image img {
+      object-position: 55% center;
+      filter: grayscale(1) brightness(.68);
+    }
+
+    .trainer-panel::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,10,9,.97) 0%, rgba(8,10,9,.7) 51%, rgba(8,10,9,.12) 100%);
+      content: "";
+    }
+
+    .trainer-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 25px 21px;
+    }
+
+    .trainer-content .micro-label {
+      color: #e3e2dc;
+      font-size: 7px;
+    }
+
+    .trainer-content h3 {
+      margin-top: 7px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .trainer-content p {
+      max-width: 190px;
+      margin-top: 11px;
+      color: #d5d5ce;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .trainer-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 13px;
+      color: #d5d5ce;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .trainer-content .btn {
+      min-height: 29px;
+      margin-top: 18px;
+      padding: 0 12px;
+      border-color: rgba(255,255,255,.55);
+      background: transparent;
+      color: white;
+      font-size: 8px;
+    }
+
+    .trainer-content .btn:hover {
+      border-color: var(--lime);
+      background: var(--lime);
+      color: var(--black);
+    }
+
+    /* MEMBERSHIP + BOOKING */
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 2.8fr 1fr;
+      min-height: 215px;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .membership {
+      position: relative;
+      display: grid;
+      grid-template-columns: .88fr 1.9fr;
+      gap: 27px;
+      padding: 25px max(25px, calc((100vw - 1540px) / 2 + 25px));
+      padding-right: 25px;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+      isolation: isolate;
+    }
+
+    .membership-bg {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+    }
+
+    .membership-bg img {
+      filter: brightness(.38) saturate(.7);
+    }
+
+    .membership::after {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(9,11,10,.72), rgba(9,11,10,.98) 33%, rgba(9,11,10,.98));
+      content: "";
+    }
+
+    .membership-intro { align-self: center; }
+
+    .membership-intro .micro-label { font-size: 7px; }
+
+    .membership-intro h2 {
+      max-width: 245px;
+      margin-top: 13px;
+      font-family: var(--font-display);
+      font-size: clamp(25px, 2.2vw, 34px);
+      font-weight: 600;
+      line-height: 1.04;
+      text-transform: uppercase;
+    }
+
+    .membership-intro p {
+      max-width: 240px;
+      margin-top: 12px;
+      color: #c7c9c1;
+      font-size: 9px;
+      line-height: 1.7;
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 8px;
+    }
+
+    .plan {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 14px 13px 12px;
+      border: 1px solid rgba(242,240,233,.24);
+      background: rgba(17,20,18,.76);
+    }
+
+    .plan.featured { border-color: rgba(212,255,67,.65); }
+
+    .popular {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      padding: 0 7px;
+      background: var(--black);
+      color: var(--lime);
+      font-size: 6px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+    }
+
+    .plan-name {
+      color: #d7d8d1;
+      font-family: var(--font-mono);
+      font-size: 8px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .plan-price {
+      margin-top: 3px;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .plan-price span {
+      color: #c6c7c0;
+      font-family: var(--font-body);
+      font-size: 8px;
+      font-weight: 400;
+    }
+
+    .plan ul {
+      display: grid;
+      gap: 5px;
+      margin: 12px 0 15px;
+      list-style: none;
+    }
+
+    .plan li {
+      display: flex;
+      gap: 5px;
+      color: #d0d1ca;
+      font-size: 8px;
+      line-height: 1.4;
+    }
+
+    .plan li::before {
+      color: var(--lime);
+      content: "✓";
+    }
+
+    .plan .btn {
+      width: 100%;
+      min-height: 27px;
+      gap: 7px;
+      margin-top: auto;
+      padding: 0 5px;
+      border-color: rgba(242,240,233,.4);
+      background: transparent;
+      color: white;
+      font-size: 7px;
+    }
+
+    .plan.featured .btn {
+      border-color: var(--lime);
+      background: var(--lime);
+      color: var(--black);
+    }
+
+    .plan .btn:hover { background: white; color: var(--black); }
+
+    /* TRIAL */
+
+    .trial {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 25px clamp(22px, 3vw, 45px);
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .trial .micro-label {
+      color: #555851;
+      font-size: 7px;
+    }
+
+    .trial h2 {
+      margin-top: 9px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .trial > p {
+      max-width: 340px;
+      margin-top: 9px;
+      color: #62645e;
+      font-size: 10px;
+    }
+
+    .trial .btn {
+      align-self: flex-start;
+      min-height: 30px;
+      margin-top: 12px;
+      padding: 0 14px;
+      font-size: 8px;
+    }
+
+    .contact-meta {
+      display: grid;
+      gap: 5px;
+      margin-top: 15px;
+      color: #5e605b;
+      font-size: 8px;
+    }
+
+    .contact-meta div {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .contact-meta span { color: #363a34; }
+
+    /* FOOTER */
+
+    .footer {
+      border-top: 1px solid var(--line);
+      background: #0b0d0c;
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      min-height: 54px;
+    }
+
+    .footer .logo-type { font-size: 16px; }
+    .footer .logo-mark span { width: 5px; height: 19px; }
+    .footer .logo-mark span:last-child { height: 14px; }
+    .footer .logo-type small { margin-top: 4px; font-size: 6px; }
+
+    .footer-motto {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #a8aaa3;
+      font-family: var(--font-mono);
+      font-size: 7px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .footer-motto b { color: var(--white); font-weight: 400; }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #d3d4cd;
+      font-size: 12px;
+    }
+
+    .footer-social a:hover { color: var(--lime); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #747870;
+      font-size: 8px;
+    }
+
+    /* MODAL + FORM */
+
+    .modal-backdrop {
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(7px);
+    }
+
+    .modal-backdrop.open { display: grid; }
+
+    .modal {
+      position: relative;
+      width: min(460px, 100%);
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: #121512;
+      box-shadow: 0 25px 90px rgba(0,0,0,.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 13px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: white;
+      font-size: 21px;
+      cursor: pointer;
+    }
+
+    .modal h2 {
+      margin-top: 10px;
+      font-family: var(--font-display);
+      font-size: 36px;
+      text-transform: uppercase;
+    }
+
+    .modal > p {
+      margin-top: 8px;
+      color: #b7bab2;
+      font-size: 12px;
+    }
+
+    .trial-form {
+      display: grid;
+      gap: 13px;
+      margin-top: 22px;
+    }
+
+    .trial-form label {
+      display: grid;
+      gap: 6px;
+      color: #dedfd8;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .trial-form input, .trial-form select {
+      width: 100%;
+      min-height: 43px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 0;
+      outline: 0;
+      background: #1b1e1b;
+      color: white;
+      font-size: 12px;
+    }
+
+    .trial-form input:focus, .trial-form select:focus {
+      border-color: var(--lime);
+    }
+
+    .trial-form select option { background: #1b1e1b; }
+    .trial-form .btn { width: 100%; margin-top: 4px; }
+
+    .modal-note {
+      margin-top: 12px;
+      color: #92958d;
+      font-size: 9px;
+      line-height: 1.5;
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 1600px) {
+      .hero, .hero-content { min-height: 370px; }
+      .hero-content { padding-top: 35px; padding-bottom: 35px; }
+      .hero h1 { font-size: 88px; }
+      .hero-description { margin-top: 22px; }
+      .hero-actions { margin-top: 24px; }
+      .program-image { height: 125px; }
+      .program-body { padding: 12px 15px 15px; }
+      .program-body h3 { font-size: 11px; }
+      .program-body p { font-size: 11px; }
+      .schedule-list li { min-height: 39px; }
+      .bottom-grid { min-height: 235px; }
+    }
+
+    @media (max-width: 1100px) {
+      .container { width: calc(100% - 40px); }
+      .nav { grid-template-columns: auto 1fr auto; gap: 22px; }
+      .nav-links { justify-content: center; gap: 18px; }
+      .nav-links a { font-size: 8px; }
+      .nav-actions { gap: 12px; }
+      .nav-actions .btn { padding: 0 13px; }
+      .overview-grid { grid-template-columns: 1.6fr 1fr; }
+      .programs-area { grid-row: span 2; }
+      .trainer-panel { min-height: 220px; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .membership { padding: 30px 25px; }
+      .trial { padding: 35px 25px; }
+      .trial > p { max-width: 500px; }
+      .contact-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: calc(100% - 32px); }
+      .header { height: 62px; }
+      .nav { grid-template-columns: 1fr auto; gap: 12px; }
+      .nav-links {
+        position: absolute;
+        top: 61px;
+        right: 0;
+        left: 0;
+        display: none;
+        height: auto;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 20px 18px;
+        border-bottom: 1px solid var(--line);
+        background: var(--black);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { min-height: 43px; font-size: 10px; }
+      .nav-links a::after { right: auto; width: 45px; }
+      .nav-links .mobile-trial { display: flex; align-self: flex-start; margin-top: 10px; }
+      .nav-actions { grid-column: 2; grid-row: 1; }
+      .nav-actions > .btn { display: none; }
+      .menu-btn { display: grid; }
+      .search-btn { width: 25px; }
+
+      .logo-type { font-size: 21px; }
+      .logo-mark span { height: 23px; }
+      .logo-mark span:last-child { height: 17px; }
+
+      .hero, .hero-content { min-height: 420px; }
+      .hero-content { justify-content: flex-end; padding-top: 55px; padding-bottom: 42px; }
+      .hero-image img { object-position: 62% center; }
+      .hero::before {
+        background:
+          linear-gradient(0deg, rgba(8,10,9,.98) 0%, rgba(8,10,9,.87) 40%, rgba(8,10,9,.35) 100%),
+          linear-gradient(90deg, rgba(8,10,9,.25), transparent);
+      }
+
+      .hero h1 { font-size: clamp(54px, 12vw, 76px); }
+      .hero-description { max-width: 360px; font-size: 12px; }
+      .hero-side-copy { display: none; }
+      .hero-controls { right: 16px; bottom: 13px; }
+      .hero-actions { gap: 20px; }
+
+      .overview { padding: 26px 0; }
+      .overview-grid { grid-template-columns: 1fr; gap: 18px; }
+      .programs-area { grid-row: auto; }
+      .programs-area > .micro-label { margin-top: 0; }
+      .program-grid { gap: 10px; }
+      .program-image { height: 120px; }
+      .program-body { padding: 11px 10px; }
+      .program-body h3 { font-size: 9px; }
+      .program-body p { min-height: 57px; font-size: 9px; }
+      .program-meta { font-size: 6px; }
+      .schedule-panel { min-height: 285px; padding: 19px; }
+      .schedule-list li { min-height: 39px; font-size: 10px; }
+      .trainer-panel { min-height: 290px; }
+      .trainer-content { padding: 24px; }
+      .trainer-content p { max-width: 240px; }
+
+      .membership { grid-template-columns: 1fr; gap: 25px; padding: 32px 16px; }
+      .membership-intro h2 { max-width: 330px; font-size: 37px; }
+      .membership-intro p { max-width: 350px; }
+      .plan-grid { gap: 8px; }
+      .plan { padding: 13px 9px 10px; }
+      .plan-price { font-size: 22px; }
+      .plan li { font-size: 8px; }
+      .plan .btn { font-size: 6px; }
+      .trial { padding: 34px 20px; }
+      .contact-meta { grid-template-columns: 1fr; }
+
+      .footer-main { flex-wrap: wrap; padding: 18px 0; }
+      .footer-motto { order: 3; width: 100%; flex-wrap: wrap; gap: 9px; }
+      .footer-social { margin-left: auto; }
+      .footer-bottom { flex-direction: column; gap: 4px; }
+    }
+
+    @media (max-width: 420px) {
+      .program-grid { grid-template-columns: 1fr; }
+      .program-card { display: grid; grid-template-columns: 42% 1fr; }
+      .program-image { height: 100%; min-height: 150px; }
+      .program-icon { font-size: 23px; }
+      .program-body { display: flex; flex-direction: column; justify-content: center; }
+      .program-body p { min-height: auto; }
+      .program-meta { margin-top: 14px; }
+      .hero h1 { font-size: 53px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; }
+      .hero-actions .text-link { margin-left: 2px; }
+      .section-heading { align-items: flex-start; flex-direction: column; }
+      .plan-grid { grid-template-columns: 1fr; gap: 13px; }
+      .plan { padding: 18px; }
+      .plan ul { gap: 7px; }
+      .plan li { font-size: 10px; }
+      .plan .btn { min-height: 34px; font-size: 8px; }
+      .plan-price { font-size: 27px; }
+      .footer-motto { font-size: 6px; }
+      .modal { padding: 25px 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="FORM ATHLETIC home">
+        <span class="logo-mark"><span></span><span></span></span>
+        <span class="logo-type">FORM<small>ATHLETIC</small></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a>
+        <a href="#programs">Programs</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#membership">Membership</a>
+        <a href="#about">About</a>
+        <a class="btn mobile-trial" href="#trial">Book a trial <span class="arrow">↗</span></a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-btn" id="searchBtn" aria-label="Search" type="button">
+          <svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.7"></circle><path d="m16 16 5 5"></path></svg>
+        </button>
+        <a class="btn btn-outline" href="#trial">Book a trial</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image">
+        <img id="heroImage"
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=90"
+          alt="Modern gym with professional strength training equipment">
+      </div>
+
+      <div class="container hero-content">
+        <div class="micro-label">Premium training studio</div>
+        <h1>
+          <span>Built through</span>
+          <span class="lime">consistency</span>
+        </h1>
+        <p class="hero-description">
+          More than a gym. A space for real progress, focused training
+          and a stronger version of you.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#trial">Start training <span class="arrow">→</span></a>
+          <a class="text-link" href="#programs">Explore programs <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero-side-copy">
+        Better<br>people<br>stronger<br>tomorrows
+        <div class="logo-mark"><span></span><span></span></div>
+      </div>
+
+      <div class="hero-controls" aria-label="Hero image controls">
+        <span class="hero-progress"></span>
+        <span id="slideCount">01 / 04</span>
+        <button type="button" id="prevSlide" aria-label="Previous image">←</button>
+        <button type="button" id="nextSlide" aria-label="Next image">→</button>
+      </div>
+    </section>
+
+    <section class="overview" id="programs">
+      <div class="container overview-grid">
+        <div class="programs-area">
+          <div class="micro-label">Training programs</div>
+
+          <div class="program-grid">
+            <article class="program-card">
+              <div class="program-image">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=85"
+                  alt="Athlete training strength in a gym" loading="lazy">
+                <span class="program-icon" aria-hidden="true">⌁</span>
+              </div>
+              <div class="program-body">
+                <h3>Strength &amp; Conditioning</h3>
+                <p>Build strength, improve performance and move better.</p>
+                <div class="program-meta"><span>All levels&nbsp;&nbsp; | &nbsp;60 min</span><span class="arrow">→</span></div>
+              </div>
+            </article>
+
+            <article class="program-card">
+              <div class="program-image">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=85"
+                  alt="Athlete performing a functional workout" loading="lazy">
+                <span class="program-icon" aria-hidden="true">↗</span>
+              </div>
+              <div class="program-body">
+                <h3>Functional Training</h3>
+                <p>Real movement. Real life. Better results.</p>
+                <div class="program-meta"><span>All levels&nbsp;&nbsp; | &nbsp;45 min</span><span class="arrow">→</span></div>
+              </div>
+            </article>
+
+            <article class="program-card">
+              <div class="program-image">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&q=85"
+                  alt="Person practicing mobility and stretching" loading="lazy">
+                <span class="program-icon" aria-hidden="true">✳</span>
+              </div>
+              <div class="program-body">
+                <h3>Mobility &amp; Wellness</h3>
+                <p>Improve mobility, reduce tension and feel your best.</p>
+                <div class="program-meta"><span>All levels&nbsp;&nbsp; | &nbsp;45 min</span><span class="arrow">→</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <section class="schedule-panel" id="schedule">
+          <div class="panel-top">
+            <div class="micro-label">Today's schedule</div>
+            <a class="mini-link" href="#trial">View full schedule&nbsp; →</a>
+          </div>
+
+          <ul class="schedule-list">
+            <li><span class="schedule-time">06:00</span><span class="schedule-dot"></span><span class="schedule-name">Strength &amp; Conditioning</span><span class="schedule-duration">45 min</span><span class="schedule-arrow">→</span></li>
+            <li><span class="schedule-time">07:30</span><span class="schedule-dot"></span><span class="schedule-name">Mobility &amp; Wellness</span><span class="schedule-duration">45 min</span><span class="schedule-arrow">→</span></li>
+            <li><span class="schedule-time">09:00</span><span class="schedule-dot"></span><span class="schedule-name">Functional Training</span><span class="schedule-duration">60 min</span><span class="schedule-arrow">→</span></li>
+            <li><span class="schedule-time">12:00</span><span class="schedule-dot"></span><span class="schedule-name">Strength &amp; Conditioning</span><span class="schedule-duration">45 min</span><span class="schedule-arrow">→</span></li>
+            <li><span class="schedule-time">17:30</span><span class="schedule-dot"></span><span class="schedule-name">Functional Training</span><span class="schedule-duration">60 min</span><span class="schedule-arrow">→</span></li>
+            <li><span class="schedule-time">19:00</span><span class="schedule-dot"></span><span class="schedule-name">Mobility &amp; Wellness</span><span class="schedule-duration">45 min</span><span class="schedule-arrow">→</span></li>
+          </ul>
+        </section>
+
+        <section class="trainer-panel" id="trainers">
+          <div class="trainer-image">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=900&q=85"
+              alt="Fitness trainer in a strength training studio" loading="lazy">
+          </div>
+          <div class="trainer-content">
+            <div class="micro-label">Meet our head trainer</div>
+            <h3>Rafael Mendes</h3>
+            <p>With over 10 years of experience in strength and conditioning, Rafael brings a results-driven approach to every session.</p>
+            <a class="btn" href="#about">View profile <span class="arrow">→</span></a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="bottom-grid" id="membership">
+      <div class="membership">
+        <div class="membership-bg">
+          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=1200&q=85"
+            alt="" loading="lazy">
+        </div>
+
+        <div class="membership-intro">
+          <div class="micro-label">Membership options</div>
+          <h2>Choose the plan that fits your goals</h2>
+          <p>Flexible options for every level and lifestyle. No long-term contracts. Just results.</p>
+        </div>
+
+        <div class="plan-grid">
+          <article class="plan">
+            <div class="plan-name">Basic</div>
+            <div class="plan-price">$59<span> / month</span></div>
+            <ul>
+              <li>Access to all areas</li>
+              <li>Group classes</li>
+              <li>1 trial session</li>
+            </ul>
+            <button class="btn plan-btn" data-plan="Basic">Get started <span class="arrow">→</span></button>
+          </article>
+
+          <article class="plan featured">
+            <span class="popular">Most popular</span>
+            <div class="plan-name">Performance</div>
+            <div class="plan-price">$89<span> / month</span></div>
+            <ul>
+              <li>Everything in Basic</li>
+              <li>Personalized program</li>
+              <li>Priority booking</li>
+              <li>2 guest passes</li>
+            </ul>
+            <button class="btn plan-btn" data-plan="Performance">Get started <span class="arrow">→</span></button>
+          </article>
+
+          <article class="plan">
+            <div class="plan-name">Elite</div>
+            <div class="plan-price">$129<span> / month</span></div>
+            <ul>
+              <li>Everything in Performance</li>
+              <li>1-on-1 assessment</li>
+              <li>Nutrition guidance</li>
+              <li>4 guest passes</li>
+            </ul>
+            <button class="btn plan-btn" data-plan="Elite">Get started <span class="arrow">→</span></button>
+          </article>
+        </div>
+      </div>
+
+      <section class="trial" id="trial">
+        <div class="micro-label">Start your journey</div>
+        <h2>Book a trial session</h2>
+        <p>Experience the difference. Schedule your free trial and discover what you're capable of.</p>
+        <button class="btn" id="openTrial">Book now <span class="arrow">→</span></button>
+
+        <div class="contact-meta">
+          <div><span>⌕</span><span>(11) 98765-4321</span></div>
+          <div><span>⌖</span><span>123 Example Street, São Paulo, SP</span></div>
+          <div><span>◷</span><span>Mon – Fri: 5 AM – 10 PM | Sat – Sun: 7 AM – 4 PM</span></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer" id="about">
+    <div class="container footer-main">
+      <a class="logo" href="#home" aria-label="FORM ATHLETIC home">
+        <span class="logo-mark"><span></span><span></span></span>
+        <span class="logo-type">FORM<small>ATHLETIC</small></span>
+      </a>
+
+      <div class="footer-motto">
+        <b>FORM ATHLETIC</b><span>|</span><span>Train</span><span>/</span><span>Improve</span><span>/</span><span>Belong</span>
+      </div>
+
+      <div class="footer-social" aria-label="Social links">
+        <a href="#trial" aria-label="Instagram">◎</a>
+        <a href="#trial" aria-label="YouTube">▷</a>
+        <a href="#trial" aria-label="Facebook">f</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> FORM ATHLETIC. All rights reserved.</span>
+      <span>MORE THAN A GYM. A COMMUNITY.</span>
+    </div>
+  </footer>
+
+  <!-- Trial booking modal -->
+  <div class="modal-backdrop" id="trialModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="closeTrial" aria-label="Close dialog" type="button">×</button>
+      <div class="micro-label">Your next chapter starts here</div>
+      <h2 id="modalTitle">Book a trial session</h2>
+      <p>Tell us a little about yourself. This demo form will prepare a message for you to review.</p>
+
+      <form class="trial-form" id="trialForm">
+        <label>
+          Full name
+          <input name="name" type="text" placeholder="Your name" required>
+        </label>
+        <label>
+          Email address
+          <input name="email" type="email" placeholder="you@example.com" required>
+        </label>
+        <label>
+          Training interest
+          <select name="interest" required>
+            <option value="">Choose a program</option>
+            <option>Strength & Conditioning</option>
+            <option>Functional Training</option>
+            <option>Mobility & Wellness</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <button class="btn" type="submit">Prepare booking request <span class="arrow">→</span></button>
+      </form>
+      <p class="modal-note">Portfolio demo only. No information is sent to a server.</p>
+    </div>
+  </div>
+
+  <!-- Search modal -->
+  <div class="modal-backdrop" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+    <div class="modal">
+      <button class="modal-close" id="closeSearch" aria-label="Close search" type="button">×</button>
+      <div class="micro-label">Find your focus</div>
+      <h2 id="searchTitle">Explore FORM</h2>
+      <p>Search programs, membership and training information on this page.</p>
+      <form class="trial-form" id="searchForm">
+        <label>
+          Search
+          <input id="searchInput" type="search" placeholder="Try “mobility” or “membership”" required>
+        </label>
+        <button class="btn" type="submit">Search page <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+      menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Trial booking modal
+    const trialModal = document.getElementById("trialModal");
+    const searchModal = document.getElementById("searchModal");
+
+    function openModal(modal) {
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      const focusable = modal.querySelector("input, select, button");
+      if (focusable) setTimeout(() => focusable.focus(), 40);
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("open");
+      if (!document.querySelector(".modal-backdrop.open")) {
+        document.body.style.overflow = "";
+      }
+    }
+
+    document.getElementById("openTrial").addEventListener("click", () => openModal(trialModal));
+    document.getElementById("closeTrial").addEventListener("click", () => closeModal(trialModal));
+
+    document.getElementById("searchBtn").addEventListener("click", () => openModal(searchModal));
+    document.getElementById("closeSearch").addEventListener("click", () => closeModal(searchModal));
+
+    [trialModal, searchModal].forEach(modal => {
+      modal.addEventListener("click", event => {
+        if (event.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeModal(trialModal);
+        closeModal(searchModal);
+      }
+    });
+
+    // Demo form: validates inputs and opens a reviewable email draft.
+    // Replace this with a real booking service before production use.
+    document.getElementById("trialForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const name = form.get("name");
+      const email = form.get("email");
+      const interest = form.get("interest");
+
+      const subject = encodeURIComponent("FORM ATHLETIC — Trial Session Request");
+      const body = encodeURIComponent(
+        `Hello FORM ATHLETIC,\n\nI'd like to enquire about a trial session.\n\nName: ${name}\nEmail: ${email}\nTraining interest: ${interest}\n\nPlease let me know the next steps.`
+      );
+
+      closeModal(trialModal);
+      window.location.href = `mailto:hello@example.com?subject=${subject}&body=${body}`;
+    });
+
+    // Membership buttons open the booking form with the chosen plan.
+    document.querySelectorAll(".plan-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        openModal(trialModal);
+        const interest = document.querySelector('#trialForm select[name="interest"]');
+        if (interest) interest.value = "Not sure yet";
+        document.getElementById("modalTitle").textContent = `${button.dataset.plan} membership`;
+      });
+    });
+
+    // In-page search
+    document.getElementById("searchForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+      if (!query) return;
+
+      const targets = [
+        ...document.querySelectorAll("main h1, main h2, main h3, main p, main .micro-label")
+      ];
+
+      const match = targets.find(element => element.textContent.toLowerCase().includes(query));
+      if (match) {
+        closeModal(searchModal);
+        match.scrollIntoView({ behavior: "smooth", block: "center" });
+        match.animate(
+          [{ opacity: .5 }, { opacity: 1 }],
+          { duration: 450 }
+        );
+      } else {
+        document.getElementById("searchInput").setCustomValidity("No matching section found. Try another term.");
+        document.getElementById("searchInput").reportValidity();
+        document.getElementById("searchInput").setCustomValidity("");
+      }
+    });
+
+    // Hero image carousel
+    const heroSlides = [
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=90",
+      "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=2200&q=90",
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=2200&q=90",
+      "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=2200&q=90"
+    ];
+
+    let currentSlide = 0;
+    const heroImage = document.getElementById("heroImage");
+    const slideCount = document.getElementById("slideCount");
+
+    function showSlide(index) {
+      currentSlide = (index + heroSlides.length) % heroSlides.length;
+      heroImage.style.opacity = ".25";
+
+      const nextImage = new Image();
+      nextImage.onload = () => {
+        heroImage.src = heroSlides[currentSlide];
+        heroImage.style.opacity = "1";
+      };
+      nextImage.onerror = () => {
+        heroImage.style.opacity = "1";
+      };
+      nextImage.src = heroSlides[currentSlide];
+
+      slideCount.textContent = `${String(currentSlide + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
+    }
+
+    document.getElementById("prevSlide").addEventListener("click", () => showSlide(currentSlide - 1));
+    document.getElementById("nextSlide").addEventListener("click", () => showSlide(currentSlide + 1));
+
+    // Active navigation state
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = document.querySelectorAll(".nav-links a[href^='#']");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navItems.forEach(link => {
+              link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+            });
+          }
+        });
+      }, { rootMargin: "-30% 0px -60% 0px" });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
