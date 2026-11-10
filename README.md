@@ -1,34 +1,32 @@
-# Client Web Projects
+# React + TypeScript + Vite
 
-Repository dedicated to website development projects, including client projects, prototypes, and conceptual website designs created for potential clients.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## About
+Currently, two official plugins are available:
 
-This repository contains website projects developed to explore design concepts, demonstrate technical capabilities, and propose digital solutions tailored to different business needs.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Some projects are **conceptual proposals created for potential clients**. They are intended to demonstrate how a company's website could look and function, rather than represent completed or officially commissioned work.
+## React Compiler
 
-## Project Types
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- **Client Projects:** Websites developed for actual clients.
-- **Conceptual Projects:** Website concepts and prototypes created to demonstrate potential solutions for businesses.
-- **Prototypes & Experiments:** Projects used to explore layouts, technologies, and development approaches.
+## Expanding the Oxlint configuration
 
-## Technologies
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-Depending on the project, this repository may include:
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
 
-- HTML5
-- CSS3
-- JavaScript
-- React
-- Tailwind CSS
-- Other web development technologies
-
-## Disclaimer
-
-Conceptual projects are independent design and development proposals. Unless explicitly stated otherwise, they should not be interpreted as official websites, commissioned projects, or endorsements by the businesses they may reference.
-
----
-
-**Purpose:** To develop, organize, and document website solutions for businesses and potential clients.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
